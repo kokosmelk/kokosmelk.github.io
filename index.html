@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=0.5, maximum-scale=3.0, user-scalable=yes">
+    <title>Priyank Agarwal - AI & Product Professional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;600&family=Manrope:wght@400;500;600&family=Caveat:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #1a1a1a;
+            --bg-secondary: #242424;
+            --card-bg: #1e1e1e;
+            --border-color: #333333;
+            --text-color: #f1f1f1;
+            --text-secondary: #c7c7c7;
+            --text-muted: #9a9a9a;
+            --accent-color: #f4c27a;
+            --accent-hover: #ffd28f;
+            --accent-secondary: #3a2d1a;
+            --button-bg: #252525;
+            --button-hover: #2f2f2f;
+        }
+
+        html {
+            font-size: 16px;
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+            text-size-adjust: 100%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-color);
+            background-image:
+                repeating-radial-gradient(circle at 17% 32%, rgba(255,255,255,0.04) 0px, transparent 1px, transparent 2px, transparent 3px),
+                repeating-radial-gradient(circle at 82% 78%, rgba(255,255,255,0.03) 0px, transparent 1px, transparent 2px, transparent 3px),
+                repeating-radial-gradient(circle at 43% 67%, rgba(255,255,255,0.04) 0px, transparent 1px, transparent 2px),
+                repeating-radial-gradient(circle at 68% 23%, rgba(255,255,255,0.03) 0px, transparent 1px, transparent 2px),
+                repeating-radial-gradient(circle at 91% 45%, rgba(255,255,255,0.04) 0px, transparent 1px, transparent 2px),
+                repeating-radial-gradient(circle at 12% 89%, rgba(255,255,255,0.03) 0px, transparent 1px, transparent 2px),
+                repeating-radial-gradient(circle at 55% 11%, rgba(255,255,255,0.04) 0px, transparent 1px, transparent 2px),
+                repeating-radial-gradient(circle at 29% 56%, rgba(255,255,255,0.03) 0px, transparent 1px, transparent 2px),
+                linear-gradient(180deg, var(--bg-color) 0%, var(--bg-secondary) 100%);
+            color: var(--text-color);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='2.5' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.06'/%3E%3C/svg%3E");
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .container {
+            max-width: min(900px, 95vw);
+            margin: 0 auto;
+            padding: 4rem 1.5rem;
+            position: relative;
+            z-index: 2;
+            width: 100%;
+        }
+
+        .profile-section {
+            margin-bottom: 3rem;
+        }
+
+        .profile-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .profile-image-container {
+            width: 240px;
+            height: 240px;
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .profile-text {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .bio {
+            font-family: 'Caveat', cursive;
+            font-size: 4.5rem;
+            line-height: 1.2;
+            margin: 0;
+            color: var(--text-color);
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .description {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: var(--text-secondary);
+            margin: 0;
+            text-align: left;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: var(--text-color);
+        }
+
+        .recent-posts-heading {
+            font-size: 1rem;
+            color: var(--text-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .recent-posts-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .recent-posts-list li {
+            display: flex;
+            align-items: baseline;
+            gap: 0.75rem;
+            font-size: 1rem;
+        }
+
+        .recent-posts-list li::before {
+            content: '';
+            color: #c0392b;
+            font-size: 0.6rem;
+            flex-shrink: 0;
+            position: relative;
+            top: -1px;
+        }
+
+        .recent-posts-list a {
+            color: var(--text-color);
+            text-decoration: underline;
+            text-decoration-color: rgba(255, 255, 255, 0.3);
+            text-underline-offset: 4px;
+            font-size: 1rem;
+            transition: text-decoration-color 0.2s ease;
+        }
+
+        .recent-posts-list a:hover {
+            text-decoration-color: var(--accent-color);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            margin: 12.6rem 0 3rem 0;
+        }
+
+        .social-links a {
+            color: var(--text-color);
+            text-decoration: underline;
+            font-weight: 500;
+            transition: color 0.2s ease, transform 0.2s ease;
+            display: inline-block;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-color);
+            transform: translateY(-2px);
+        }
+
+        .nav-links {
+            position: fixed;
+            top: 2rem;
+            right: 5.5rem;
+            display: flex;
+            gap: 1rem;
+            z-index: 1000;
+        }
+
+        .nav-link {
+            padding: 0.75rem 1.5rem;
+            background: var(--accent-color);
+            color: var(--bg-color);
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 1rem;
+            font-weight: 700;
+            transition: all 0.2s ease;
+            border: 3px solid #a67c3a;
+            box-shadow: 4px 4px 0px 0px #a67c3a;
+            cursor: pointer;
+        }
+
+        .nav-link:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px 0px #a67c3a;
+        }
+
+        .nav-link:active {
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px 0px #a67c3a;
+        }
+
+        @media (max-width: 640px) {
+            .container {
+                padding: 2rem 1rem;
+            }
+
+            .profile-header {
+                flex-direction: column;
+                align-items: center;
+                gap: 1.5rem;
+            }
+
+            .profile-text {
+                text-align: center;
+            }
+
+            .profile-image-container {
+                width: 180px;
+                height: 180px;
+            }
+
+            .profile-image {
+                object-position: center 20%;
+                transform: scale(1.3);
+            }
+
+            .bio {
+                font-size: 2rem;
+                white-space: normal;
+            }
+
+            .description {
+                text-align: center;
+                font-size: 1rem;
+            }
+
+            .nav-links {
+                top: 1rem;
+                right: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav-links">
+        <a href="CV_Priyank.pdf" target="_blank" class="nav-link">View CV</a>
+    </nav>
+
+    <div class="container">
+        <section class="profile-section">
+            <div class="profile-header">
+                <div class="profile-image-container">
+                    <img src="profile.jpg" alt="Priyank Agarwal" class="profile-image">
+                </div>
+                <div class="profile-text">
+                    <p class="bio">Hi, I'm Priyank</p>
+                    <p class="description">
+                        I'm a Master's in ICT in Business student who has an interest in AI implementation and adoption in organisations. I'm also a board member at ESN where I am defining the alumni section for the national section.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <p class="recent-posts-heading">My recent projects are:</p>
+            <ul class="recent-posts-list">
+                <li>Implementing AI in Procurement for a Dutch Dairy MNC</li>
+                <li>Evaluating AI in a national review process for a Dutch Ministry</li>
+                <li>Researching implications of EU AI Act</li>
+                <li>Transforming "sociale-kart" with AI for Leiden Gemeente</li>
+            </ul>
+        </section>
+
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/priyank01/" target="_blank">LinkedIn</a>
+            <a href="https://github.com/kokosmelk" target="_blank">Github</a>
+            <a href="https://twitter.com/priyank01" target="_blank">Twitter</a>
+        </div>
+    </div>
+</body>
+</html>
